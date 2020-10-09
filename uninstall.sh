@@ -2,6 +2,8 @@
 
 APP_NAME="vim-in"
 
+# BACKUP_DATE=`cat $HOME/.vim-in.bak`
+
 msg() {
     printf '%b\n' "$1" >&2
 }
@@ -24,29 +26,21 @@ error() {
     exit 1
 }
 
-debug() {
-    if [ "$debug_mode" -eq '1' ] && [ "$ret" -gt '1' ]; then
-        msg "An error occurred in function \"${FUNCNAME[$i+1]}\" on line ${BASH_LINENO[$i+1]}, we're sorry for that."
-    fi
-}
 
 do_restore() {
-    if [ -e "$1" ] || [ -e "$2" ] || [ -e "$3" ]; then
         msg "Attempting to restore your original vim configuration."
-        today=`cat $HOME/.vim-in.bak`
+        local today=`cat $HOME/.vim-in.bak`
         for i in "$1" "$2" "$3"; do
-            [ -e "$i.$today" ] && [ ! -L "$i.$today" ] && mv -v "$i.$today" "$i";
+            mv -v "$i.$today" "$i";
         done
-        ret="$?"
+        local ret='0'
         success "Your original vim configuration has been restored."
-        debug
-   fi
+        rm "$HOME/.vim-in.bak"
 }
 
 uninstall_all() {
     rm -rf $HOME/.vim;
     rm -rf $HOME/.vimrc;
-    debug
 }
 
 # Main
@@ -57,16 +51,9 @@ msg "Uninstalling $APP_NAME"
 
 uninstall_all
 
-do_restore       "$HOME/.vim" \
+do_restore      "$HOME/.vim" \
                 "$HOME/.vimrc" \
                 "$HOME/.gvimrc"
-
-ret = "$?"
-
-if [ "$ret" -eq '1' ] && [ "$ret" -gt '1' ]; then
-    msg "An error occurred."
-    exit 0
-fi
 
 msg             "\nThanks for using $APP_NAME."
 msg             "$APP_NAME uninstalled successfully."

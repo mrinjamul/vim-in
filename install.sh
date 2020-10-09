@@ -18,12 +18,6 @@ error() {
     exit 1
 }
 
-debug() {
-    if [ "$debug_mode" -eq '1' ] && [ "$ret" -gt '1' ]; then
-        msg "An error occurred in function \"${FUNCNAME[$i+1]}\" on line ${BASH_LINENO[$i+1]}, we're sorry for that."
-    fi
-}
-
 program_exists() {
     local ret='0'
     command -v $1 >/dev/null 2>&1 || { local ret='1'; }
@@ -51,32 +45,21 @@ variable_set() {
     fi
 }
 
-lnif() {
-    if [ -e "$1" ]; then
-        ln -sf "$1" "$2"
-    fi
-    ret="$?"
-    debug
-}
-
 do_backup() {
     if [ -e "$1" ] || [ -e "$2" ] || [ -e "$3" ]; then
         msg "Attempting to back up your original vim configuration."
-        today=`date +%Y%m%d_%s`
+        local today=`date +%Y%m%d_%s`
         for i in "$1" "$2" "$3"; do
             [ -e "$i" ] && [ ! -L "$i" ] && mv -v "$i" "$i.$today"; echo "$today" > $HOME/.vim-in.bak ;
         done
-        ret="$?"
+        local ret='0'
         success "Your original vim configuration has been backed up."
-        debug
    fi
 }
 
 install_vim() {
     cp .vimrc "$1"
     cp -rf .vim "$HOME"
-    ret="$?"
-    debug
 }
 
 install_plugins() {
@@ -88,9 +71,8 @@ install_plugins() {
         "+CocUpdateSync"\
         "+qall"
 
-
+    local ret='0'
     success "Now installing plugins using Vim Plug"
-    debug
 }
 
 # Main
