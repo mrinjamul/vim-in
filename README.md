@@ -21,6 +21,7 @@ You need to install,
 Download or clone the repository.
 
 ```sh
+git clone https://github.com/mrinjamul/vim-in.git
 cd vim-in
 chmod +x install.sh
 ./install.sh

@@ -61,6 +61,12 @@ do_restore       "$HOME/.vim" \
                 "$HOME/.vimrc" \
                 "$HOME/.gvimrc"
 
+ret = "$?"
+
+if [ "$ret" -eq '1' ] && [ "$ret" -gt '1' ]; then
+    msg "An error occurred."
+    exit 0
+fi
 
 msg             "\nThanks for using $APP_NAME."
 msg             "$APP_NAME uninstalled successfully."
