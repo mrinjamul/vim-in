@@ -68,7 +68,7 @@ if has('nvim') || has('patch-8.0.902')
     endif
 
 " Tag Lists
-Plug 'vim-scripts/taglist.vim'
+" Plug 'vim-scripts/taglist.vim'
 
 " Plug 'prettier/vim-prettier', {
 "  \ 'do': 'yarn install --frozen-lockfile',
