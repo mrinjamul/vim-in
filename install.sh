@@ -80,6 +80,7 @@ install_plugins() {
 variable_set "$HOME"
 program_must_exist "vim"
 program_must_exist "git"
+program_must_exist "curl"
 program_must_exist "yarn"
 
 do_backup       "$HOME/.vim" \

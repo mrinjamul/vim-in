@@ -10,9 +10,10 @@ This is a distribution of vim plugins for Web Development and golang development
 
 You need to install,
 
-- `vim` (v8+ recommanded)
+- `vim` (v8+ recommanded but v7.3+ version is supported)
 - `git`
 - `yarn`
+- `curl`
 - `npm` (optional)
 - `go` (optional)
 
