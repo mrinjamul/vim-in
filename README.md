@@ -1,4 +1,4 @@
-# vim-in
+# vim-in (light)
 
 _A vim distribution you will love it._
 
@@ -12,9 +12,7 @@ You need to install,
 
 - `vim` (v8+ recommanded but v7.3+ version is supported)
 - `git`
-- `yarn`
 - `curl`
-- `npm` (optional)
 - `go` (optional)
 
 [Note: if you don't want to use for golang then you can remove plugins used for golang]

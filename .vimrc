@@ -79,7 +79,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 
 " Java Autocomplete
-Plug 'artur-shaik/vim-javacomplete2'
+" Plug 'artur-shaik/vim-javacomplete2'
 
 "neocomplete plugin
 Plug 'Shougo/neocomplete.vim'
@@ -209,4 +209,4 @@ let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 " Coc Prettier
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 " coc.nvim extensions
-let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver']
+" let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver']

@@ -67,8 +67,6 @@ install_plugins() {
     vim \
         "+PlugInstall" \
         "+PlugClean" \
-        "+CocInstall coc-html coc-css coc-json coc-prettier coc-tsserver"\
-        "+CocUpdateSync"\
         "+qall"
 
     local ret='0'
@@ -81,7 +79,7 @@ variable_set "$HOME"
 program_must_exist "vim"
 program_must_exist "git"
 program_must_exist "curl"
-program_must_exist "yarn"
+# program_must_exist "yarn"
 
 do_backup       "$HOME/.vim" \
                 "$HOME/.vimrc" \
