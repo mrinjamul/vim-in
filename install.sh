@@ -87,7 +87,7 @@ do_backup       "$HOME/.vim" \
                 "$HOME/.vimrc" \
                 "$HOME/.gvimrc"
 
-install_vim "$HOME/.vimrc" 
+install_vim "$HOME/.vimrc"
 
 install_plugins
 

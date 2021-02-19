@@ -15,7 +15,7 @@ call plug#begin('~/.vim/plugged')
 " Ref-https://github.com/t9md/vim-choosewin
 Plug 't9md/vim-choosewin'
 
-" file browser
+" Better file browser
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdcommenter'
@@ -70,6 +70,7 @@ if has('nvim') || has('patch-8.0.902')
 " Tag Lists
 " Plug 'vim-scripts/taglist.vim'
 
+" post install (yarn install | npm install) then load plugin only for editing supported files
 " Plug 'prettier/vim-prettier', {
 "  \ 'do': 'yarn install --frozen-lockfile',
 "  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
@@ -88,8 +89,15 @@ Plug 'Shougo/neocomplete.vim'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
+" This plugin shows icons in vim
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
+
+" UTF-8 encoding
+set encoding=UTF-8
 
 " Key Mapper
 nmap - <Plug>(choosewin)
@@ -117,22 +125,11 @@ let g:airline_theme = 'bubblegum'
 let g:airline#extensions#whitespace#enabled = 0
 let g:coc_disable_startup_warning = 1
 " Fancy Symbols!!
-let fancy_symbols_enabled=0
+" Enable it if Nerd Font or any patched Nerd Font is installed
+let fancy_symbols_enabled = 0
 
 if fancy_symbols_enabled
     let g:webdevicons_enable = 1
-
-    " custom airline symbols
-    if !exists('g:airline_symbols')
-       let g:airline_symbols = {}
-    endif
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = '⭠'
-    let g:airline_symbols.readonly = '⭤'
-    let g:airline_symbols.linenr = '⭡'
 else
     let g:webdevicons_enable = 0
 endif
@@ -210,3 +207,6 @@ let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 " coc.nvim extensions
 let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver']
+" snipmate fixes
+let g:snipMate = { 'snippet_version' : 1  }
+"END
