@@ -50,6 +50,9 @@ Plug 'marcweber/vim-addon-mw-utils'
 
 " Git tool
 Plug 'tpope/vim-fugitive'
+" Github Gist
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
 
 " fuzzy file finder
 " Plug 'ctrlpvim/ctrlp.vim'
@@ -209,4 +212,9 @@ command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver']
 " snipmate fixes
 let g:snipMate = { 'snippet_version' : 1  }
+" Github Gist
+let g:gist_show_privates = 1
+let g:gist_post_private = 1
+let g:gist_api_url = 'https://api.github.com'
+
 "END
