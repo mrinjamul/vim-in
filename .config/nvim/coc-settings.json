@@ -1,0 +1,40 @@
+{
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      },
+      "client": {
+        "snippetSupport": true
+      }
+    }
+  },
+  "efm": {
+    "command": "efm-langserver",
+    "args": ["-c", "$HOME/.config/efm-langserver/config.yaml"],
+    "filetypes": ["vim", "eruby", "markdown"]
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "html",
+    "css",
+    "js",
+    "md",
+    "Markdown"
+  ]
+}
