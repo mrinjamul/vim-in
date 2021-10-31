@@ -117,6 +117,9 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+" autopairs configurations
+let g:AutoPairsShortcutToggle = '<C-a>'
+
 " Airline Start ------------------------------
 
 let g:airline_powerline_fonts = 0
