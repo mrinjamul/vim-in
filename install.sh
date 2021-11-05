@@ -62,6 +62,26 @@ install_vim() {
     cp -rf .vim "$HOME"
 }
 
+install_nvim() {
+    cp -rf .config/nvim "$HOME/.config"
+}
+
+install_neo() {
+    program_exists nvim
+
+    if [ "$?" -eq 0 ]; then
+        do_backup "$HOME/.config/nvim"
+        install_nvim
+        install_plugins
+        success "NeoVim has been installed."
+
+        msg "\nThanks for installing $APP_NAME!"
+        msg "© `date +%Y` Injamul Mohammad Mollah"
+        exit 0
+    fi
+
+}
+
 install_plugins() {
 
     vim \
@@ -86,6 +106,9 @@ program_must_exist "yarn"
 do_backup       "$HOME/.vim" \
                 "$HOME/.vimrc" \
                 "$HOME/.gvimrc"
+
+
+install_neo
 
 install_vim "$HOME/.vimrc"
 

@@ -43,11 +43,22 @@ uninstall_all() {
     rm -rf $HOME/.vimrc;
 }
 
+uninstall_neo() {
+    rm -rf $HOME/.config/nvim
+    do_restore $HOME/.config/nvim
+
+    msg "\nThanks for using $APP_NAME."
+    msg "$APP_NAME uninstalled successfully."
+    exit 0
+}
+
 # Main
 
 variable_set "$HOME"
 
 msg "Uninstalling $APP_NAME"
+
+uninstall_neo
 
 uninstall_all
 
