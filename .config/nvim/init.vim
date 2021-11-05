@@ -13,6 +13,9 @@ set scrolloff=3
 
 set wildmode=list:longest
 
+" true gui color support
+set termguicolors
+
 " clear search results
 nnoremap <silent> // :noh<CR>
 

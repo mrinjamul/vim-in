@@ -23,7 +23,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
-    
+
+    " Nord Theme for neovim
+    Plug 'arcticicestudio/nord-vim'
+
     " Window chooser
     " Ref-https://github.com/t9md/vim-choosewin
     Plug 't9md/vim-choosewin'
@@ -123,7 +126,7 @@ let g:AutoPairsShortcutToggle = '<C-a>'
 " Airline Start ------------------------------
 
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'bubblegum'
+" let g:airline_theme = 'bubblegum'
 let g:airline#extensions#whitespace#enabled = 0
 let g:coc_disable_startup_warning = 1
 " Fancy Symbols!!
@@ -136,6 +139,9 @@ else
     let g:webdevicons_enable = 0
 endif
 " Airline end----------------------------------
+
+" Nord theme using 'arcticicestudio/nord-vim'
+colorscheme nord
 
 " remap envoke key FZF
 nnoremap <silent> <C-x> :FZF<CR>
@@ -198,7 +204,11 @@ let g:blamer_delay = 500
 let g:blamer_show_in_visual_modes = 0
 let g:blamer_show_in_insert_modes = 0
 let g:blamer_relative_time = 1
-" Killersheep game
-" packadd! killersheep
+
+" Github Copilot configurations
+let g:copilot_filetypes = {
+            \ 'md': v:true,
+            \ 'markdown': v:true,
+            \ }
 
 " END
