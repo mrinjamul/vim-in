@@ -22,6 +22,9 @@ nnoremap <silent> // :noh<CR>
 " show line numbers
 set nu
 
+" Helps force plugins to load correctly when it is turned back on below
+filetype on
+
 " tabs and spaces handling
 set expandtab
 set tabstop=4

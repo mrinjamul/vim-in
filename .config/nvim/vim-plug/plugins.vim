@@ -27,6 +27,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Nord Theme for neovim
     Plug 'arcticicestudio/nord-vim'
 
+    " Dracula Theme for vim
+    Plug 'dracula/vim', { 'as': 'dracula' }
+
     " Window chooser
     " Ref-https://github.com/t9md/vim-choosewin
     Plug 't9md/vim-choosewin'
@@ -91,6 +94,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mattn/webapi-vim'
     Plug 'mattn/gist-vim'
 
+    " Minimap for vim
+    Plug 'wfxr/minimap.vim'
+
     " Github Copilot
     Plug 'github/copilot.vim'
     "
@@ -123,11 +129,20 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 " autopairs configurations
 let g:AutoPairsShortcutToggle = '<C-a>'
 
+" Nord theme using 'arcticicestudio/nord-vim'
+" colorscheme nord
+" Dracula theme using 'dracula/vim'
+colorscheme dracula
+" Transparent background after using any theme
+highlight Normal guibg=NONE ctermbg=NONE
+
+
 " Airline Start ------------------------------
 
 let g:airline_powerline_fonts = 0
 " let g:airline_theme = 'bubblegum'
 " let g:airline_theme = 'minimalist'
+let g:airline_theme = 'dracula'
 let g:airline#extensions#whitespace#enabled = 0
 let g:coc_disable_startup_warning = 1
 " Fancy Symbols!!
@@ -158,9 +173,6 @@ else
     let g:webdevicons_enable = 0
 endif
 " Airline end----------------------------------
-
-" Nord theme using 'arcticicestudio/nord-vim'
-colorscheme nord
 
 " remap envoke key FZF
 nnoremap <silent> <C-x> :FZF<CR>
@@ -212,6 +224,9 @@ endfunction
 " auto install coc.nvim extensions
 " let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver']
 
+" Syntastic
+let g:syntastic_python_python_exec = 'python3'
+
 " Github Gist
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
@@ -223,6 +238,11 @@ let g:blamer_delay = 500
 let g:blamer_show_in_visual_modes = 0
 let g:blamer_show_in_insert_modes = 0
 let g:blamer_relative_time = 1
+
+" Minimap settings
+let g:minimap_width = 10
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
 
 " Github Copilot configurations
 let g:copilot_filetypes = {
